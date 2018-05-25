@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="nebPay.js"></script>
+
+
+    <style>
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>Touch Maximum Black Holes</h1>
+        <p id="score_section"> <span id="high_score"> </span> <button type="button" class="btn btn-success btn-xs" onClick="get_highest()">Refresh</button> </p> 
+
+        <form name="cpanel">
+            <center>
+                <table cellspacing=3>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-success" onClick="play()">Start Game</button>
+                        </td>
+                        <td>
+                            <button onClick="stopgame()" type="button" class="btn btn-danger">Stop Game</button>
+
+                        </td>
+                        <td align=right>Time:</td>
+                        <td>
+                            <input type="text" name="timeleft" size="4" onFocus="this.blur()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td align=right>Score:</td>
+                        <td>
+                            <input type="text" name="score" size="4" onFocus="this.blur()">
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h3 class="text-center">Game Area</h3>
+                <h4 class="text-center">Status:
+                    <span id="game_status" style="color:Green">Click Start to Play </span>
+                </h4>
+                <form name="dmz">
+                    <center>
+                        <table cellspacing=3>
+                            <tr>
+                                <td colspan=10>
+                                    <hr size=1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(0)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(1)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(2)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(3)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(4)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(5)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(6)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(7)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(8)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(9)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(10)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(11)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(12)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(13)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(14)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(15)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(16)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(17)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(18)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(19)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(20)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(21)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(22)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(23)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(24)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(25)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(26)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(27)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(28)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(29)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(30)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(31)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(32)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(33)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(34)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(35)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(36)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(37)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(38)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(39)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(40)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(41)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(42)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(43)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(44)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(45)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(46)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(47)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(48)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(49)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(50)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(51)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(52)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(53)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(54)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(55)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(56)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(57)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(58)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(59)">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(60)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(61)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(62)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(63)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(64)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(65)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(66)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(67)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(68)">
+                                </td>
+                                <td align="center" valign="center">
+                                    <input type="radio" onClick="touchhole(69)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=10>
+                                    <hr size=1>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <h3>Instrunctions:</h3>
+
+
+                <ol>
+                    <li>Click on the black holes buttons as
+                        <BR> they are selected randomly by the computer.
+                        <BR>
+                        <li> Plus 1 for Hit, Minus 1 for miss
+                            <li>Time limit is 20 seconds</li>
+                            <BR>
+                            <li>Only Score beating the highest score will be submitted to the contract.</li>
+                            <BR>
+
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Provide your details for score submission to Nebulas </h4>
+                </div>
+                <div class="modal-body">
+                    <p id="player_score"> </p>
+                    <p>
+                        <span> Your Name : </span>
+                        <input id="player_name" type="text"> </p>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-success" onclick="play()">Re Play</button>
+
+                    <button type="button" class="btn btn-default" onclick="call_submit()">Submit</button>
+
+                    <p> Note: If your score beats the highest score, then only it will be submitted.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="./code.js" >
+    </script>
+
+</body>
+
+</html>
