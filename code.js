@@ -1,4 +1,4 @@
-document.getElementById("score_section").style.display = "None";
+//document.getElementById("score_section").style.display = "None";
 document.getElementById("process").style.display = "None";
 var NebPay = require("nebpay");
 var nebPay = new NebPay();
@@ -41,7 +41,7 @@ function result(data) {
     var result = JSON.parse(data.result);
 
     if (result) {
-        document.getElementById("score_section").style.display = "block";
+        //document.getElementById("score_section").style.display = "block";
         document.getElementById("high_score").innerHTML = "High Score:   " + result.score + "  by " + result.name;
     } else {
         document.getElementById("high_score").innerHTML = "High Score: 0 ";
@@ -111,7 +111,7 @@ function final_submit(){
 
 function cbsuccess(){
     document.getElementById("process").style.display = "None";
-    alert("Score Submitted successfully, click Refresh button to see your Name");
+    alert("Game Completed, click Refresh button to see the new Highest Score");
 }
 
 
@@ -176,7 +176,7 @@ function cbCallDapp(result) {
 }
 
 function play() {
-    document.getElementById("score_section").style.display = "None";
+    document.getElementById("process").style.display = "None";
     //username = window.prompt("Enter your Name");
     $('#myModal').modal('hide');
     stoptimer();
