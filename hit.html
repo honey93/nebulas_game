@@ -21,8 +21,15 @@
 <body>
 
     <div class="jumbotron text-center">
+        <div class="alert alert-success alert-dismissible" id="process">
+            
+            <strong>Wait!</strong> We are processing your score! It will take few seconds
+        </div>
         <h1>Touch Maximum Black Holes</h1>
-        <p id="score_section"> <span id="high_score"> </span> <button type="button" class="btn btn-success btn-xs" onClick="get_highest()">Refresh</button> </p> 
+        <p id="score_section">
+            <span id="high_score"> </span>
+            <button type="button" class="btn btn-success btn-xs" onClick="get_highest()">Refresh</button>
+        </p>
 
         <form name="cpanel">
             <center>
@@ -60,7 +67,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-4">
+
+                <h3 class="text-center">About the App</h3>
+                <li>This is a Dapp created on
+                    <b>
+                        <a href="https://nebulas.io/" target="_blank">Nebulas Platform</a>
+                    </b>
+                </li>
+
+                <li>To use this App, you need to have
+                    <b>
+                        <a href="https://github.com/nebulasio/web-wallet" target="_blank"> Nebulas Wallet </a>
+                    </b>,
+                    <b>Nebulas Token</b> and
+                    <b>
+                        <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">Nebulas Web Extension</a>
+                    </b>
+                </li>
+                <li>You need to have
+                    <b>Mainnet</b> enabled in your Chrome Extension, cost involved to play is very less, lesser than you have
+                    ever spent.</li>
+                <li>If you beat the current highest score, then your highest score will be stored on Nebulas</li>
+                <li>About me:
+                    <a target="_blank" href="https://www.linkedin.com/in/honey-thakuria-b30a3a85/">Linkedin</a>
+                </li>
+            </div>
+            <div class="col-sm-4">
                 <h3 class="text-center">Game Area</h3>
                 <h4 class="text-center">Status:
                     <span id="game_status" style="color:Green">Click Start to Play </span>
@@ -308,18 +341,17 @@
                 </form>
             </div>
             <div class="col-sm-4">
-                <h3>Instrunctions:</h3>
+                <h3>Instructions:</h3>
 
 
-                <ol>
+                <ol style="color:yellowgreen">
                     <li>Click on the black holes buttons as
                         <BR> they are selected randomly by the computer.
                         <BR>
                         <li> Plus 1 for Hit, Minus 1 for miss
                             <li>Time limit is 20 seconds</li>
-                            <BR>
-                            <li>Only Score beating the highest score will be submitted to the contract.</li>
-                            <BR>
+
+
 
                 </ol>
             </div>
@@ -358,7 +390,7 @@
 
 
 
-    <script src="./code.js" >
+    <script src="./code.js">
     </script>
 
 </body>

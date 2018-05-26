@@ -1,5 +1,5 @@
 document.getElementById("score_section").style.display = "None";
-
+document.getElementById("process").style.display = "None";
 var NebPay = require("nebpay");
 var nebPay = new NebPay();
 
@@ -103,15 +103,22 @@ function final_submit(){
     var args = "[\"" + username + "\",\"" + quote + "\"]";
 
     nebPay.call(contractAddress, 0, func, args, {
-        listener: cbCallDapp
+        listener: cbsuccess
     });
 
 }
 
 
+function cbsuccess(){
+    document.getElementById("process").style.display = "None";
+    alert("Score Submitted successfully, click Refresh button to see your Name");
+}
+
 
 function call_submit() {
+
     if (document.getElementById("player_name").value.trim()) {
+        document.getElementById("process").style.display = "block";
         username = document.getElementById("player_name").value.trim();
         submit_score();
         $('#myModal').modal('hide');
@@ -123,6 +130,7 @@ function call_submit() {
 
 
 function stopgame() {
+    
     stoptimer();
     playing = false;
     document.cpanel.timeleft.value = 0;
@@ -159,6 +167,7 @@ function cbCallDapp(result) {
     console.log("error came");
     if (result.result.indexOf("Error:") != -1) {
         //       alert("error");
+        document.getElementById("process").style.display = "None";
         alert(result.result.split("Error:")[1]);
     } else {
 
@@ -167,7 +176,7 @@ function cbCallDapp(result) {
 }
 
 function play() {
-
+    document.getElementById("score_section").style.display = "None";
     //username = window.prompt("Enter your Name");
     $('#myModal').modal('hide');
     stoptimer();
