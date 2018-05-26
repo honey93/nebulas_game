@@ -39,7 +39,7 @@ function get_highest() {
 function result(data) {
 
     var result = JSON.parse(data.result);
-       
+
     if (result) {
         document.getElementById("score_section").style.display = "block";
         document.getElementById("high_score").innerHTML = "High Score:   " + result.score + "  by " + result.name;
@@ -89,8 +89,20 @@ function submit_score() {
     var func = "save"
     var args = "[\"" + username + "\",\"" + quote + "\"]";
 
+    nebPay.simulateCall(contractAddress, 0, func, args, {
+        listener: cbCallDapp
+    });
+
+}
+
+
+function final_submit(){
+
+    console.log("Add to the Smart Contract");
+    var func = "save"
+    var args = "[\"" + username + "\",\"" + quote + "\"]";
+
     nebPay.call(contractAddress, 0, func, args, {
-        callback: NebPay.config.testnetUrl,
         listener: cbCallDapp
     });
 
@@ -144,7 +156,14 @@ function stopgame() {
 }
 
 function cbCallDapp(result) {
-    console.log(JSON.stringify(result));
+    console.log("error came");
+    if (result.result.indexOf("Error:") != -1) {
+        //       alert("error");
+        alert(result.result.split("Error:")[1]);
+    } else {
+
+        final_submit();
+    }
 }
 
 function play() {
